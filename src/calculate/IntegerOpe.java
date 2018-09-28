@@ -2,7 +2,7 @@ package calculate;
 
 import java.util.Random;
 
-public class Integer {
+public class IntegerOpe {
 
 	public static String gen(int max) {
 		Random rd = new Random();
