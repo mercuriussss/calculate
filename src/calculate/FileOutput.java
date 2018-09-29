@@ -30,11 +30,11 @@ public class FileOutput {
 		BufferedReader brExe = new BufferedReader(new InputStreamReader(new FileInputStream(fileExe)));
 
 		while ((strAns = brAns.readLine()) != null) {
-			strAns = strAns.replaceAll(" ", "").substring(strAns.indexOf(".") + 1);
+			strAns = strAns.replaceAll("\\s", "").substring(strAns.indexOf(".") + 1);
 			if (cs.answer.get(0).equals(strAns)) {
 				while ((strExe = brExe.readLine()) != null) {
 					strExe = strExe.substring(strExe.indexOf(".") + 1, strExe.indexOf("="));
-					strExe = strExe.replaceAll(" ", "");
+					strExe = strExe.replaceAll("\\s", "");
 					numbs = strExe.split("[\\+\\-\\*\\÷]");
 					opers = strExe.split("[^\\+\\-\\*\\÷]");
 					sameNum = 0;

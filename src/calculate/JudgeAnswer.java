@@ -18,12 +18,12 @@ public class JudgeAnswer {
 		BufferedReader brAns = new BufferedReader(new InputStreamReader(new FileInputStream(AnsFile)));
 
 		while ((str = brExe.readLine()) != null) {
-			str = str.trim().replaceAll(" ", "");
+			str = str.trim().replaceAll("\\s", "");
 			str = str.substring(str.indexOf("=") + 1);
 			testAns.add(str);
 		}
 		while ((str = brAns.readLine()) != null) {
-			str = str.trim().replaceAll(" ", "");
+			str = str.trim().replaceAll("\\s", "");
 			str = str.substring(str.indexOf(".") + 1);
 			trueAns.add(str);
 		}
@@ -35,9 +35,9 @@ public class JudgeAnswer {
 					correct.add(String.valueOf(num) + ", ");
 				}
 			} else {
-				if (num == trueAns.size()) {
+				if(num == trueAns.size()){
 					wrong.add(String.valueOf(num));
-				} else {
+				}else{
 					wrong.add(String.valueOf(num) + ", ");
 				}
 			}
