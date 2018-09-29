@@ -63,7 +63,11 @@ public class Main {
 					System.out.println("\n输入指令错误，请重来！");
 				}
 				break;
+			default :
+				System.out.println("\n输入指令错误，请重来！");
+				break;
 			}
+			
 		}
 		
 	}
