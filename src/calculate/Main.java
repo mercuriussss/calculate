@@ -11,7 +11,6 @@ public class Main {
 		System.out.println("\n\t 输入 “-e <exercisefile>.txt -a <answerfile>.txt” 可校对答案，并将其校对结果输出到Grade.txt文件中");
 		System.out.println("\n\t 输入 “-exit ” 可退出程序");
 		System.out.println("\n\t PS: -r 指令需要在输入 -n 指令后才能实现，不过可由两者同时输入，例如“-n 10 -r 10”");
-		Scanner sc;
 		int max;
 		int nums;
 		while (true) {
@@ -20,7 +19,7 @@ public class Main {
 			nums = 0;
 
 			System.out.println("\n请输入相应指令：     ");
-			sc = new Scanner(System.in);
+			Scanner sc = new Scanner(System.in);
 			String commands[] = sc.nextLine().toString().trim().replaceAll(" +", " ").split(" ");
 			if (commands[0].equals("-exit")) {
 				break;
@@ -66,8 +65,7 @@ public class Main {
 				break;
 			}
 		}
-
-		sc.close();
+		
 	}
 
 	public static void build(int numbs, int max) throws IOException {
