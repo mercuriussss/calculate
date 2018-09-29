@@ -4,19 +4,23 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class CreateSubject {
-	// 四种符号
-	// 2、3、4位相加
+
 	private static final String[] OPERATORS = { "+", "-", "*", "÷" };
 	ArrayList<String> expression = new ArrayList<String>();// 算式字符串存储
+	ArrayList<String> numbs = new ArrayList<String>();
+	ArrayList<String> opers = new ArrayList<String>();
+	ArrayList<String> answer = new ArrayList<String>();
+
 	Random rd = new Random();
 
 	public CreateSubject(int max) {
 
 		String numA = randNum(max);
 		String numB = null;
-		int nums = rd.nextInt(3) + 2;// 几位数的运算
+		int nums = rd.nextInt(3) + 2;// 几个数字的运算
 		String flag = null;
 		expression.add(numA);
+		numbs.add(numA);
 
 		for (int i = 0; i < nums - 1; i++) {
 			numB = randNum(max);
@@ -25,37 +29,34 @@ public class CreateSubject {
 			switch (flag) {
 			case "+":
 				numA = Calculate.add(numA, numB);
-				expression.add(flag);
-				expression.add(numB);
 				break;
 
 			case "-":
 				if (!Calculate.isGreater(numA, numB)) {
 					flag = OPERATORS[0];
 					numA = Calculate.add(numA, numB);
-				}else{
+				} else {
 					numA = Calculate.sub(numA, numB);
 				}
-				expression.add(flag);
-				expression.add(numB);
 				break;
 
 			case "*":
 				numA = Calculate.mul(numA, numB);
-				expression.add(flag);
-				expression.add(numB);
 				break;
 
 			case "÷":
 				numA = Calculate.div(numA, numB);
-				expression.add(flag);
-				expression.add(numB);
 				break;
 			}
+
+			expression.add(flag);
+			expression.add(numB);
+			numbs.add(numB);
+			opers.add(flag);
 		}
 		addBrackets(expression);
-		expression.add(" = ");
-		expression.add(String.valueOf(numA));
+		expression.add("=");
+		answer.add(numA);
 	}
 
 	// 随机生成分数或整数
@@ -92,17 +93,5 @@ public class CreateSubject {
 		}
 
 		return expression;
-	}
-
-	public static void main(String[] args) {
-		CreateSubject cs;
-		for (int i = 1; i <= 10; i++) {
-			cs = new CreateSubject(10);
-			System.out.printf(i + ".\t");
-			for (String a : cs.expression) {
-				System.out.printf(a+" ");
-			}
-			System.out.println();
-		}
 	}
 }

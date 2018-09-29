@@ -1,12 +1,6 @@
 package calculate;
 
 public class Calculate {
-	// 整数跟整数，整数跟分数，分数跟分数
-	// 2、3、4位相加
-	String answer;
-	public Calculate() {
-		
-	}
 	
 	//比较大小
 	public static boolean isGreater(String numA, String numB) {

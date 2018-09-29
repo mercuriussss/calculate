@@ -3,7 +3,7 @@ package calculate;
 import java.util.Random;
 
 public class FractionOpe {
-	
+
 	public static String gen(int max) {
 		String fraction = null;
 		Random rd = new Random();
@@ -26,4 +26,3 @@ public class FractionOpe {
 		return fraction;
 	}
 }
-
